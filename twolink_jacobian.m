@@ -3,7 +3,8 @@
 %respect to the joint angles as derived in Question  q:jacobian-effector.
 function [vertexEffectorDot]=twolink_jacobian(theta,thetaDot)
     w_hat = @(w)[0 -w;w 0];
-    single_vertexEffectorDot = @(theta_k,thetaDot_k) rot2d(theta_k(1))*(w_hat(thetaDot_k(1))*rot2d(theta_k(2))+rot2d(theta_k(2))*w_hat(thetaDot_k(2))+eye(2))*[5;0];
+    %single_vertexEffectorDot = @(theta_k,thetaDot_k) rot2d(theta_k(1))*(w_hat(thetaDot_k(1))*rot2d(theta_k(2))+rot2d(theta_k(2))*w_hat(thetaDot_k(2))+eye(2))*[5;0];
+    single_vertexEffectorDot = @(theta_k,thetaDot_k) rot2d(theta_k(1))*w_hat(thetaDot_k(1))*rot2d(theta_k(2))*[5;0] + rot2d(theta_k(1))*rot2d(theta_k(2))*w_hat(thetaDot_k(2))*[5;0]+rot2d(theta_k(1))*[5;0];
     vEffectorDot = zeros(2,size(theta,2));
     for i = 1:size(theta,2)
         vEffectorDot(:,i) = single_vertexEffectorDot(theta(:,i),thetaDot(:,i));

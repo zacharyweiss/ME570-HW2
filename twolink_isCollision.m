@@ -5,7 +5,7 @@
 %collision.
 function [flagTheta]=twolink_isCollision(theta,points)
     for i=1:size(theta,2)
-        [~,vertices1,vertices2] = twolink_kinematicMap(theta(:,i);
+        [~,vertices1,vertices2] = twolink_kinematicMap(theta(:,i));
         twolink_plot(theta(:,i),'r',[0;0])
         flagTheta = any([any(polygon_isCollision(vertices1,points)) any(polygon_isCollision(vertices2,points))]);
 end

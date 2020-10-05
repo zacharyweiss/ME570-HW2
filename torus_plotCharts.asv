@@ -21,10 +21,11 @@ function torus_plotCharts()
     C2(:,:,2:3) = 0;
     C3 = CO;
     C3(:,:,[1 3]) = 0;
-    surf(grid.F(g_e,g_e,1),grid.F(g_e,g_e,2),grid.F(g_e,g_e,3),CO(g_e,g_e,:),'FaceAlpha',0.5)
-    surf(grid.F(g_c,g_c,1),grid.F(g_c,g_c,2),grid.F(g_c,g_c,3),C1(g_c,g_c,:),'FaceAlpha',0.5)
-    surf(grid.F(g_c,g_e,1),grid.F(g_c,g_e,2),grid.F(g_c,g_e,3),C2(g_c,g_e,:),'FaceAlpha',0.5)
-    surf(grid.F(g_e,g_c,1),grid.F(g_e,g_c,2),grid.F(g_e,g_c,3),C3(g_e,g_c,:),'FaceAlpha',0.5)
+
+    surf(grid.F(g_e,g_e,1),grid.F(g_e,g_e,2),grid.F(g_e,g_e,3),CO,'FaceAlpha',0.75)
+    surf(grid.F(g_c,g_c,1),grid.F(g_c,g_c,2),grid.F(g_c,g_c,3),'y','FaceAlpha',0.75)
+    surf(grid.F(g_c,g_e,1),grid.F(g_c,g_e,2),grid.F(g_c,g_e,3),'m','FaceAlpha',0.75)
+    surf(grid.F(g_e,g_c,1),grid.F(g_e,g_c,2),grid.F(g_e,g_c,3),'k','FaceAlpha',0.75)
 end
 %Use the commands  @x   hold on and  @x   hold off to show all the charts on the
 %same figure. To better show the overlap between the charts, you can use
